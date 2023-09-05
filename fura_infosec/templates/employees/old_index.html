@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <title>{{ title }}</title>
+</head>
+
+<body>
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2">Login</button>
+        <button type="button" class="btn btn-primary">Sign-up</button>
+      </div>
+    </header>
+  <div class="row">
+
+    <div class="col-2 p-3 bg-white">
+
+      <div>
+        <a href="/" class="align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none nav nav-pills flex-column mb-auto">
+          <span class="fs-4">Типа новый проект</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="#" class="nav-link" aria-current="page">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              Orders
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              Products
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link link-dark">
+              Customers
+            </a>
+          </li>
+        </ul>
+        <hr>
+      </div>
+
+    </div>
+
+    <div class="col-10">
+      <div>
+        <table class="table table-hover table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Фамилия</th>
+              <th scope="col">Имя</th>
+              <th scope="col">Почта</th>
+              <th scope="col">Телефон</th>
+              <th scope="col">Департамент</th>
+              <th scope="col">Должность</th>
+              <th scope="col">Устройство</th>
+              <th scope="col">Лицензия пользователя</th>
+              <th scope="col">Лицензия устройства</th>
+              <th scope="col">Статус</th>
+              <th scope="col">Досье</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for emp in employees %}
+              <tr>
+                <td>{{ emp.lastname }}</td>
+                <td>{{ emp.firstname }}</td>
+                <td>{{ emp.email }}</td>
+                <td>{{ emp.phone }}</td>
+                <td>{{ emp.department }}</td>
+                <td>{{ emp.position }}</td>
+                <td>{{ emp.device }}</td>
+                <td>{{ emp.user_lic }}</td>
+                <td>{{ emp.device__dev_name }}</td>
+                <td>{{ emp.status }}</td>
+                <td>{{ emp.dossier }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="fixed-bottom py-3 mt-auto text-50 text-center">
+    <div class="container">
+      <p>Создано специально для
+        <a href="https://fura.com/">ФУРА</a>, by
+        <a href="https://github.com/yumeko6">Витёк</a>.
+      </p>
+    </div>
+  </footer>
+
+</body>
